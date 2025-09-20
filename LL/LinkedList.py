@@ -4,6 +4,61 @@ class ListNode:
         self.next = next
 
 class Solution:
+    def partition(self, head, x):
+        h1 = ListNode()
+        h2 = ListNode()
+        small = h1
+        great = h2
+        curr = head
+        
+        while curr:
+            if curr.val < x:
+                small.next = curr
+                small = small.next
+            else:
+                great.next = curr
+                great = great.next
+            curr = curr.next
+        great.next = None
+        small.next = h2.next
+        return h1.next
+        # h1 = ListNode()
+        # small = h1
+        # curr = head
+        # previous = None
+        
+        # while curr and curr.val < x:
+        #     temporary = curr.next
+        #     small.next = curr
+        #     small = small.next
+        #     curr = temporary
+
+        # # self.printLinkedList()
+
+        # while curr:
+        #     if curr.val < x:
+        #         if curr and curr.next:
+        #             previous.next = curr.next           
+        #             small.next = curr
+        #             small = small.next
+        #             previous = previous.next
+        #         else:
+        #             small.next = curr
+        #             small = small.next
+        #             previous.next = None
+        #         if previous and previous.next:
+        #             curr = previous.next
+        #         else:
+        #             small.next = head
+        #             return h1.next
+        #     else:
+        #         previous = curr
+        #         if curr and curr.next:
+        #             curr = curr.next
+
+        # small.next = head
+        # return h1.next
+    
     def mergeNodes(self, head):
         pass
         
@@ -184,6 +239,9 @@ class Solution:
         odd.next = curr        
         
         return head
+    
+    def deleteDuplicates(self, head):
+        pass
         
     def convertArrayToLL(self,head):
         root = ListNode(head[0])
@@ -202,9 +260,9 @@ class Solution:
         print("None")
 
 s = Solution()
-l1 = s.convertArrayToLL([0,3,1,0,4,5,2,0])
+l1 = s.convertArrayToLL([1,4,3,2,5,2])
 # l2 = s.convertArrayToLL([5])
-head = s.mergeNodes(l1)
+head = s.partition(l1,3)
 # head = s.convertArrayToLL( [7,2,4,3])
 # sumOfTwo = s.addTwoNumbers(l1,l2)
 # new_head = s.oddEvenList(head)

@@ -321,32 +321,115 @@
 # addOperators()
 
 # print((one+two+three+four)/4)
-def numberOfPairs():    
-    nums = [[1,1],[2,2],[3,3]]
-    nums.sort()
-    count = 0
+# def numberOfPairs():    
+#     nums = [[1,1],[2,2],[3,3]]
+#     nums.sort()
+#     count = 0
 
-    for j in range(len(nums)):
-        row = nums[j][0]
-        col = nums[j][1]
+#     for j in range(len(nums)):
+#         row = nums[j][0]
+#         col = nums[j][1]
 
-        for r in range(len(nums)):
-                if nums[r][0] == row and nums[r][1] == col:
-                    print("Continue hoga")
-                    continue
-                else:
-                    if nums[r][1] <= col and row >= nums[r][0]:
-                        print(nums[r])
-                        for i in range(len(nums)):
-                            if (nums[i][0] == row and nums[i][1] == col) or (nums[i][0] == nums[r][0] and nums[i][1] == nums[r][1]):
-                                print("yeh hit hua",nums[i])
-                                continue
-                            if col <= nums[i][1] <= nums[r][1] or nums[r][1] <= nums[i][1] <= col:
-                                print("Mil gaya",nums[r],row,col)
-                                continue
-                            else:
-                                print(count,nums[i],nums[r])
-                                count += 1
-    print(count)
+#         for r in range(len(nums)):
+#                 if nums[r][0] == row and nums[r][1] == col:
+#                     print("Continue hoga")
+#                     continue
+#                 else:
+#                     if nums[r][1] <= col and row >= nums[r][0]:
+#                         print(nums[r])
+#                         for i in range(len(nums)):
+#                             if (nums[i][0] == row and nums[i][1] == col) or (nums[i][0] == nums[r][0] and nums[i][1] == nums[r][1]):
+#                                 print("yeh hit hua",nums[i])
+#                                 continue
+#                             if col <= nums[i][1] <= nums[r][1] or nums[r][1] <= nums[i][1] <= col:
+#                                 print("Mil gaya",nums[r],row,col)
+#                                 continue
+#                             else:
+#                                 print(count,nums[i],nums[r])
+#                                 count += 1
+#     print(count)
 
-numberOfPairs()
+# numberOfPairs()
+
+# def setMatrixZero():
+#     matrix = [
+#         [0,1,2,0],
+#         [3,4,5,2],
+#         [1,3,1,5]
+#         ]
+    
+#     row = len(matrix)
+#     col = len(matrix[0])
+
+#     firstRow = any(matrix[0][x] == 0 for x in range(col))
+#     firstCol = any(matrix[x][0] == 0  for x in range(row))
+
+#     for r in range(1,row):
+#         for c in range(1,col):
+#             if matrix[r][c] == 0: 
+#                 matrix[0][c] = 0
+#                 matrix[r][0] = 0
+    
+#     for r in range(1,row):
+#         for c in range(1,col):
+#             if matrix[r][c] != 0:
+#                 if matrix[r][0] == 0 or matrix[0][c] == 0: 
+#                     matrix[r][c] = 0
+
+#     if firstRow:
+#         for r in range(col):
+#             matrix[0][r] = 0
+
+#     if firstCol:
+#         for c in range(row):
+#             matrix[c][0] = 0
+
+#     print(matrix)
+
+# setMatrixZero()
+
+# import math
+
+# def replaceNonCoprimes():
+#     nums = [287,41,49,287,899,23,23,20677,5,825]
+
+#     print(math.gcd(287,41))
+#     print(math.gcd(41,49))
+
+#     stack = []
+#     num = 0
+
+#     while num < len(nums):
+#         while stack and num < len(nums) and math.gcd(stack[-1],nums[num]) > 1:
+#             popped = stack.pop()
+#             print(popped,nums[num],math.gcd(popped,nums[num]),math.lcm(popped,nums[num]))
+#             stack.append(math.lcm(popped,nums[num]))
+#             num += 1
+#         if num < len(nums):
+#             stack.append(nums[num])
+#         num += 1
+#     return stack 
+
+# print(replaceNonCoprimes())
+
+import heapq
+
+class TaskManager:
+
+    def __init__(self, tasks: list[list[int]]):
+        self.tasks = tasks
+
+    def add(self, userId: int, taskId: int, priority: int) -> None:
+        self.tasks.append([userId,taskId,priority])
+
+    def edit(self, taskId: int, newPriority: int) -> None:
+        pass
+
+    def rmv(self, taskId: int) -> None:
+        pass
+
+    def execTop(self) -> int:
+        pass
+
+task = TaskManager([])
+task.add(1,101,10)

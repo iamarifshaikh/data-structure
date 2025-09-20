@@ -1,0 +1,4 @@
+def getNoZeroIntegers():
+    pass
+
+getNoZeroIntegers()
